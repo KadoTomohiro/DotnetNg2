@@ -6,6 +6,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:dotnet": "npm run build -- -op ../WebAPI/wwwroot",
+    "build:dotnet:prod": "npm run build:dotnet -- --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
