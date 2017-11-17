@@ -70,7 +70,7 @@ echo Build Angular Web Clien
 call :ExecuteCmd dir
 IF !ERRORLEVEL! NEQ 0 goto error
 
-call :ExecuteCmd cd WebClient
+call cd WebClient
 IF !ERRORLEVEL! NEQ 0 goto error
 
 call :ExecuteCmd dir
@@ -82,7 +82,7 @@ IF !ERRORLEVEL! NEQ 0 goto error
 call ExecuteCmd npm run build:dotnet:prod
 IF !ERRORLEVEL! NEQ 0 goto error
 
-call :ExecuteCmd cd ..
+call cd ..
 IF !ERRORLEVEL! NEQ 0 goto error
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
