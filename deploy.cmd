@@ -60,6 +60,24 @@ IF DEFINED CLEAN_LOCAL_DEPLOYMENT_TEMP (
 IF DEFINED MSBUILD_PATH goto MsbuildPathDefined
 SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :MsbuildPathDefined
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Build Angular Web Client
+:: ----------
+
+echo Build Angular Web Clien
+
+call :ExecuteCmd cd WebClient
+IF !ERRORLEVEL! NEQ 0 goto error
+
+call :ExecuteCmd npm install
+IF !ERRORLEVEL! NEQ 0 goto error
+
+call ExecuteCmd npm run build:dotnet:prod
+IF !ERRORLEVEL! NEQ 0 goto error
+
+call :ExecuteCmd cd ..
+IF !ERRORLEVEL! NEQ 0 goto error
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
 :: ----------
