@@ -70,14 +70,19 @@ echo Build Angular Web Clien
 call cd WebClient
 IF !ERRORLEVEL! NEQ 0 goto error
 
-call :ExecuteCmd npm cache clean
-IF !ERRORLEVEL! NEQ 0 goto error
+echo npm install
 
 call :ExecuteCmd npm install
 IF !ERRORLEVEL! NEQ 0 goto error
 
+echo npm install success
+
+echo ng build
+
 call ExecuteCmd npm run build:dotnet:prod
 IF !ERRORLEVEL! NEQ 0 goto error
+
+echo success ng build
 
 call cd ..
 IF !ERRORLEVEL! NEQ 0 goto error
