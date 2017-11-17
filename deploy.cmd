@@ -67,7 +67,13 @@ SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 
 echo Build Angular Web Clien
 
+call :ExecuteCmd dir
+IF !ERRORLEVEL! NEQ 0 goto error
+
 call :ExecuteCmd cd WebClient
+IF !ERRORLEVEL! NEQ 0 goto error
+
+call :ExecuteCmd dir
 IF !ERRORLEVEL! NEQ 0 goto error
 
 call :ExecuteCmd npm install
