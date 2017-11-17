@@ -272,4 +272,4 @@ __pycache__/
 
 # End of https://www.gitignore.io/api/aspnetcore
 
-WebAPI/wwwroot
+WebAPI/.gitignore
